@@ -1,3 +1,21 @@
+<?php
+    // SDK de Mercado Pago
+    require __DIR__ .  './vendor/autoload.php';
+
+    // Agrega credenciales
+    MercadoPago\SDK::setAccessToken(' APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
+
+    // Crea un objeto de preferencia
+    $preference = new MercadoPago\Preference();
+
+    // Crea un ítem en la preferencia
+    $item = new MercadoPago\Item();
+    $item->title = $_POST['title'];
+    $item->quantity = $_POST['unit'];
+    $item->unit_price = $_POST['price'];
+    $preference->items = array($item);
+    $preference->save();
+?>
 <!DOCTYPE html>
 <html class="supports-animation supports-columns svg no-touch no-ie no-oldie no-ios supports-backdrop-filter as-mouseuser" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -124,13 +142,23 @@
                                             </h3>
                                         </div>
                                         <h3 >
-                                            <?php echo $_POST['price'] ?>
+                                            <?php echo "$" . $_POST['price'] ?>
                                         </h3>
                                         <h3 >
-                                            <?php echo "$" . $_POST['unit'] ?>
+                                            <?php echo "Unidades:" . $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    <script
+                                        src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
+                                        data-preference-id="<?php echo $preference->id; ?>">
+                                    </script>
+                                    <!--
+                                        <input type="hidden" name="img" value="<?php echo $_POST['img'] ?>">
+                                        <input type="hidden" name="title" value="<?php echo $_POST['title'] ?>">
+                                        <input type="hidden" name="price" value="<?php echo $_POST['price'] ?>">
+                                        <input type="hidden" name="unit" value="<?php echo "$" . $_POST['unit'] ?>">
+                                        <button type="submit" class="mercadopago-button" formmethod="post">Pagar</button>
+                                    -->
                                 </div>
                             </div>
                         </div>
