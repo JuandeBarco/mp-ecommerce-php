@@ -152,6 +152,7 @@
                                         src="https://www.mercadopago.com.mx/integrations/v1/web-payment-checkout.js"
                                         data-preference-id="<?php echo $preference->id; ?>">
                                     </script>
+                                    <?php echo $preference->id; ?>
                                     <!--
                                         <input type="hidden" name="img" value="<?php echo $_POST['img'] ?>">
                                         <input type="hidden" name="title" value="<?php echo $_POST['title'] ?>">
