@@ -21,7 +21,7 @@
         case "payment":
             $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
             $json_texto = json_decode(MercadoPago\Payment);
-            $sql = "INSERT INTO json (json_texto, json_j)
+            $sql = "INSERT INTO json (json_texto)
             VALUES ($json_texto)";
             break;
         case "plan":
