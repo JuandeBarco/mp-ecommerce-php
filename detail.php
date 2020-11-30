@@ -46,7 +46,7 @@
     $preference->external_reference = "lextadz@gmail.com";
 
     $preference->items = array($item);
-    $preference->payer = array($payer);
+    //$preference->payer = array($payer);
     $preference->save();
 ?>
 <!DOCTYPE html>
