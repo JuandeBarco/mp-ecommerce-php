@@ -45,6 +45,8 @@
 
     $preference->external_reference = "lextadz@gmail.com";
 
+    $preference->notification_url = "https://juandebarco-mp-commerce-php.herokuapp.com/endpoint.php";
+
     $preference->items = array($item);
     //$preference->payer = array($payer);
     $preference->save();
