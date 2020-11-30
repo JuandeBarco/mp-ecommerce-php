@@ -25,7 +25,7 @@
     $payer->name = "Lalo";
     $payer->surname = "Landa";
     $payer->email = "test_user_81131286@testuser.com";
-    $payer->date_created = "2018-06-02T12:58:41.425-04:00";
+    //$payer->date_created = "2018-06-02T12:58:41.425-04:00";
     $payer->phone = array(
       "area_code" => "52",
       "number" => "5549737300"
@@ -47,7 +47,7 @@
     $preference->external_reference = "lextadz@gmail.com";
 
     $preference->items = array($item);
-    //$preference->payer = array($payer);
+    $preference->payer = array($payer);
     $preference->save();
 ?>
 <!DOCTYPE html>
