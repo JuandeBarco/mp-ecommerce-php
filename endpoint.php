@@ -1,5 +1,5 @@
 <?php
-    $servername = "https://rcdistribuidora.com";
+    $servername = "rcdistribuidora.com";
     $username = "rcdistri_mp";
     $password = "qwerty123";
     $dbname = "rcdistri_mpexample";
