@@ -14,7 +14,7 @@
     $item->id = "1234";
     $item->title = $_POST['title'];
     $item->description = "Dispositivo móvil de Tienda e-commerce";
-    //$item->picture_url = $_POST['img'];
+    $item->picture_url = $_POST['img'];
     $item->category_id = "phones";
     $item->quantity = $_POST['unit'];
     $item->currency_id = "MXN";
@@ -47,7 +47,7 @@
     $preference->external_reference = "lextadz@gmail.com";
 
     $preference->items = array($item);
-    $preference->payer = array($payer);
+    //$preference->payer = array($payer);
     $preference->save();
 ?>
 <!DOCTYPE html>
