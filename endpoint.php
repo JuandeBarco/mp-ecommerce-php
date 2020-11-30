@@ -16,13 +16,14 @@
     
     // Agrega notificación
     MercadoPago\SDK::setAccessToken("APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181");
+    $info = json_decode($this->input->raw_input_stream);
     
     switch($_POST["type"]) {
         case "payment":
             $payment = MercadoPago\Payment.find_by_id($_POST["id"]);
             $json_texto = json_decode(MercadoPago\Payment);
             $sql = "INSERT INTO json (json_texto)
-            VALUES ($json_texto)";
+            VALUES ($info)";
             break;
         case "plan":
             $plan = MercadoPago\Plan.find_by_id($_POST["id"]);
