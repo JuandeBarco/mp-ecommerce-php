@@ -34,6 +34,6 @@
                 $plan = MercadoPago\Invoice.find_by_id($_POST["id"]);
             break;
         }
-    $conn->query($sql)
+    $conn->query($sql);
     $conn->close();
 ?>
