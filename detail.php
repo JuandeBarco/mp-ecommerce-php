@@ -35,14 +35,15 @@
     );
 
     // Crear restricciones de pago
-    $payment_methods = new MercadoPago\PaymentMethod();
-    $payment_methods->excluded_payment_methods = array(
-        "id" => 'amex'
+    $preference->payment_methods = array(
+        "excluded_payment_methods" => array(
+          array("id" => "amex")
+        ),
+        "excluded_payment_types" => array(
+          array("id" => "atm")
+        ),
+        "installments" => 6
     );
-    $payment_methods->excluded_payment_types = array(
-        "id" => 'atm'
-    );
-    $payment_methods->installments = 6;
     
     $preference->back_urls = array(
         "success" => "https://juandebarco-mp-commerce-php.herokuapp.com/success.php",
@@ -55,7 +56,6 @@
 
     $preference->items = array($item);
     $preference->payer = $payer;
-    $preference->payment_methods = $payment_methods;
     $preference->save();
 ?>
 <!DOCTYPE html>
