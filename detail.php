@@ -55,7 +55,7 @@
 
     $preference->items = array($item);
     $preference->payer = $payer;
-    $preference->payer = $payment_methods;
+    $preference->payment_methods = $payment_methods;
     $preference->save();
 ?>
 <!DOCTYPE html>
