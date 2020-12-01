@@ -34,6 +34,16 @@
       "zip_code" => "03940"
     );
 
+    // Crear restricciones de pago
+    $payment_methods = new MercadoPago\PaymentMethod();
+    $payment_methods->excluded_payment_methods = array(
+        "id" => 'amex'
+    );
+    $payment_methods->excluded_payment_types = array(
+        "id" => 'atm'
+    );
+    $payment_methods->installments = 6;
+    
     $preference->back_urls = array(
         "success" => "https://juandebarco-mp-commerce-php.herokuapp.com/success.php",
         "failure" => "https://juandebarco-mp-commerce-php.herokuapp.com/failure.php",
@@ -45,6 +55,7 @@
 
     $preference->items = array($item);
     $preference->payer = $payer;
+    $preference->payer = $payment_methods;
     $preference->save();
 ?>
 <!DOCTYPE html>
