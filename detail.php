@@ -1,7 +1,6 @@
 <?php
     // SDK de Mercado Pago
     require __DIR__ .  '/vendor/autoload.php';
-
     // Agrega credenciales
     MercadoPago\SDK::setAccessToken('APP_USR-1159009372558727-072921-8d0b9980c7494985a5abd19fbe921a3d-617633181');
     MercadoPago\SDK::setIntegratorId('dev_24c65fb163bf11ea96500242ac130004');
@@ -25,7 +24,6 @@
     $payer->name = "Lalo";
     $payer->surname = "Landa";
     $payer->email = "test_user_81131286@testuser.com";
-    //$payer->date_created = "2018-06-02T12:58:41.425-04:00";
     $payer->phone = array(
       "area_code" => "52",
       "number" => "5549737300"
@@ -42,13 +40,11 @@
         "pending" => "https://juandebarco-mp-commerce-php.herokuapp.com/pending.php"
     );
     $preference->auto_return = "approved";
-
     $preference->external_reference = "lextadz@gmail.com";
-
     $preference->notification_url = "https://juandebarco-mp-commerce-php.herokuapp.com/endpoint.php?source_news=webhooks";
 
     $preference->items = array($item);
-    //$preference->payer = array($payer);
+    $preference->payer = $payer;
     $preference->save();
 ?>
 <!DOCTYPE html>
